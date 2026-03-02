@@ -1,0 +1,141 @@
+/* Подключаем современный шрифт */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 40px;
+    background-color: #f5f5f5;
+    color: #111;
+}
+
+/* Заголовок */
+h1 {
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+/* Основная кнопка */
+button {
+    font-family: inherit;
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: 1px solid #111;
+    background: white;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-weight: 500;
+}
+
+button:hover {
+    background: #111;
+    color: white;
+}
+
+/* Кнопка создания */
+#openCreateBtn {
+    margin-bottom: 20px;
+}
+
+/* Карточка товара */
+.item {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    transition: transform 0.1s ease;
+}
+
+.item:hover {
+    transform: translateY(-2px);
+}
+
+/* Фото */
+.item img {
+    max-width: 220px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+/* Название */
+.item h3 {
+    margin: 0 0 8px 0;
+    font-weight: 600;
+}
+
+/* Цена */
+.price {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* Кнопки внутри карточки */
+.item button {
+    margin-right: 10px;
+}
+
+/* Удаление — чуть агрессивнее */
+.delete-btn {
+    border-color: #000;
+}
+
+.delete-btn:hover {
+    background: #000;
+    color: white;
+}
+
+/* Ошибка */
+.error {
+    color: black;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+/* ================= */
+/* МОДАЛЬНОЕ ОКНО */
+/* ================= */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    width: 350px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    font-weight: 600;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-family: inherit;
+}
+
+.modal-content input:focus {
+    outline: none;
+    border-color: #000;
+}

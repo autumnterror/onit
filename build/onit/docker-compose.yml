@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  onit:
+    depends_on:
+      - db
+    container_name: onit
+    image: onit:latest
+    volumes:
+      - .env:/app/.env
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+  db:
+    container_name: db
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    volumes:
+      - onit-data:/var/lib/postgresql
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    restart: unless-stopped
+    env_file: .env
+
+volumes:
+  onit-data:
