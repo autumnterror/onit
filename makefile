@@ -1,2 +1,2 @@
-build:
-	docker build -t onit -f ./build/docker .
+b:
+	docker build -t onit -f ./build/docker/dockerfile .

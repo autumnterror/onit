@@ -1,4 +1,3 @@
-/* Подключаем современный шрифт */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
 * {
@@ -13,13 +12,11 @@ body {
     color: #111;
 }
 
-/* Заголовок */
 h1 {
     font-weight: 600;
     margin-bottom: 30px;
 }
 
-/* Основная кнопка */
 button {
     font-family: inherit;
     padding: 8px 14px;
@@ -36,12 +33,12 @@ button:hover {
     color: white;
 }
 
-/* Кнопка создания */
+
 #openCreateBtn {
     margin-bottom: 20px;
 }
 
-/* Карточка товара */
+
 .item {
     background: white;
     border: 1px solid #ddd;
@@ -55,31 +52,30 @@ button:hover {
     transform: translateY(-2px);
 }
 
-/* Фото */
+
 .item img {
     max-width: 220px;
     border-radius: 6px;
     margin-bottom: 10px;
 }
 
-/* Название */
+
 .item h3 {
     margin: 0 0 8px 0;
     font-weight: 600;
 }
 
-/* Цена */
+
 .price {
     font-weight: 600;
     margin-bottom: 10px;
 }
 
-/* Кнопки внутри карточки */
+
 .item button {
     margin-right: 10px;
 }
 
-/* Удаление — чуть агрессивнее */
 .delete-btn {
     border-color: #000;
 }
@@ -89,16 +85,12 @@ button:hover {
     color: white;
 }
 
-/* Ошибка */
 .error {
     color: black;
     margin-bottom: 15px;
     font-size: 14px;
 }
 
-/* ================= */
-/* МОДАЛЬНОЕ ОКНО */
-/* ================= */
 
 .modal {
     position: fixed;

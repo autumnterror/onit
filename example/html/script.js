@@ -15,11 +15,9 @@ const descriptionInput = document.getElementById("description");
 const priceInput = document.getElementById("price");
 const photoInput = document.getElementById("photo");
 
-let editingId = null; // если null — создаём, иначе редактируем
+let editingId = null;
 
-// ======================
-// Загрузка списка
-// ======================
+
 async function loadProducts() {
     errorEl.textContent = "";
     listEl.innerHTML = "Загрузка...";
@@ -41,9 +39,7 @@ async function loadProducts() {
     }
 }
 
-// ======================
-// Отрисовка
-// ======================
+
 function renderProducts(products) {
     listEl.innerHTML = "";
 
@@ -69,7 +65,7 @@ function renderProducts(products) {
       <button class="delete-btn">Удалить</button>
     `;
 
-        // Удаление
+
         div.querySelector(".delete-btn").addEventListener("click", async () => {
             if (!confirm("Удалить товар?")) return;
 
@@ -90,7 +86,7 @@ function renderProducts(products) {
             }
         });
 
-        // Редактирование
+   
         div.querySelector(".edit-btn").addEventListener("click", async () => {
             try {
                 const res = await fetch(API_BASE + "?id=" + p.id);
@@ -122,9 +118,7 @@ function renderProducts(products) {
     });
 }
 
-// ======================
-// Открытие для создания
-// ======================
+
 openCreateBtn.addEventListener("click", () => {
     editingId = null;
     modalTitle.textContent = "Создать товар";
@@ -137,16 +131,11 @@ openCreateBtn.addEventListener("click", () => {
     modal.classList.remove("hidden");
 });
 
-// ======================
-// Закрытие
-// ======================
 closeModalBtn.addEventListener("click", () => {
     modal.classList.add("hidden");
 });
 
-// ======================
-// Сохранение (Create / Update)
-// ======================
+
 saveBtn.addEventListener("click", async () => {
     try {
         let method = "POST";
@@ -183,5 +172,4 @@ saveBtn.addEventListener("click", async () => {
     }
 });
 
-// ======================
 loadProducts();
