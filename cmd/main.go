@@ -15,9 +15,8 @@ import (
 )
 
 func main() {
-	if err := godotenv.Load(); err != nil {
-		log.Panic(err)
-	}
+	_ = godotenv.Load()
+
 	user := os.Getenv("POSTGRES_USER")
 	pw := os.Getenv("POSTGRES_PASSWORD")
 	db := os.Getenv("POSTGRES_DB")

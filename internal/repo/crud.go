@@ -6,6 +6,7 @@ import (
 	"gorm.io/gorm"
 )
 
+//go:generate go run go.uber.org/mock/mockgen@latest -destination=mocks/mock_product_repo.go -package=mocks . ProductRepository
 type ProductRepository interface {
 	Create(product *domain.Product) error
 	GetAll() ([]domain.Product, error)
