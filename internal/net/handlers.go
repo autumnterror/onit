@@ -108,5 +108,5 @@ func (e *Echo) Update(c echo.Context) error {
 }
 
 func (e *Echo) Health(c echo.Context) error {
-	return c.JSON(http.StatusOK, "health123")
+	return c.JSON(http.StatusOK, "app")
 }
