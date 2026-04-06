@@ -36,10 +36,10 @@ func New(
 
 	api := e.echo.Group("/api")
 	{
+		api.GET("/health", e.Health)
 		prod := api.Group("/product")
 		{
 			prod.GET("", e.GetById)
-			prod.GET("/health", e.Health)
 			prod.GET("/all", e.GetAll)
 			prod.DELETE("", e.Delete)
 			prod.PUT("", e.Update)
