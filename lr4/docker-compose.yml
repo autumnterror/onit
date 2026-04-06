@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: nginx-balancer
+    ports:
+      - "8000:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - app1
+      - app2
+      - app3
+    networks:
+      - balancer-net
+
+  app1:
+    build: ./app
+    container_name: go-app-1
+    environment:
+      - NODE_ID=Нода 1 🟢
+      - PORT=8000
+    networks:
+      - balancer-net
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  app2:
+    build: ./app
+    container_name: go-app-2
+    environment:
+      - NODE_ID=Нода 2 🔵
+      - PORT=8000
+    networks:
+      - balancer-net
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  app3:
+    build: ./app
+    container_name: go-app-3
+    environment:
+      - NODE_ID=Нода 3 🟣
+      - PORT=8000
+    networks:
+      - balancer-net
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+networks:
+  balancer-net:
+    driver: bridge

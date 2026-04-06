@@ -106,3 +106,7 @@ func (e *Echo) Update(c echo.Context) error {
 
 	return c.JSON(http.StatusOK, all)
 }
+
+func (e *Echo) Health(c echo.Context) error {
+	return c.JSON(http.StatusOK, "health")
+}

@@ -5,7 +5,7 @@ services:
     depends_on:
       - db
     container_name: onit
-    image: onit:latest
+    image: ghcr.io/autumnterror/onit/onit:latest
     volumes:
       - .env:/app/.env
     ports:
